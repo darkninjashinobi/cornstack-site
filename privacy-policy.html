@@ -58,25 +58,29 @@
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 10px;
             text-decoration: none;
         }
 
-        .nav-logo-icon {
-            width: 26px;
-            height: 26px;
+        .inline-icon {
+            width: 18px;
+            height: 18px;
             object-fit: contain;
+            vertical-align: middle;
+            margin: 0 4px;
+            margin-top: -3px; /* visual tweak to align perfectly with text */
         }
 
         .nav-logo-text {
             font-family: 'Space Mono', monospace;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
             color: var(--text-primary);
             letter-spacing: 0.06em;
+            display: flex;
+            align-items: center;
         }
 
-        .nav-logo-text .accent { color: var(--orange); }
+        .nav-logo-text .accent { color: var(--orange); margin: 0 4px; }
 
         .lang-switcher {
             display: flex;
@@ -118,17 +122,18 @@
         }
 
         .hero-icon {
-            width: 88px;
-            height: 88px;
+            width: 100px;
+            height: 100px;
             object-fit: contain;
             margin: 0 auto 24px;
             display: block;
             filter: drop-shadow(0 0 24px rgba(247, 147, 26, 0.35));
+            border-radius: 22px;
         }
 
         .hero-icon-fallback {
-            width: 88px;
-            height: 88px;
+            width: 100px;
+            height: 100px;
             background: var(--orange-dim);
             border: 1px solid var(--orange-border);
             border-radius: 22px;
@@ -339,9 +344,12 @@
             color: var(--text-tertiary);
             letter-spacing: 0.06em;
             margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .footer-logo .accent { color: var(--orange); }
+        .footer-logo .accent { color: var(--orange); margin: 0 4px; }
 
         footer p {
             font-size: 12px;
@@ -356,7 +364,7 @@
             .hero      { padding: 56px 18px 40px; }
             .content   { padding: 0 16px 72px; }
             .section   { padding: 24px 20px; }
-            .hero-icon, .hero-icon-fallback { width: 72px; height: 72px; }
+            .hero-icon, .hero-icon-fallback { width: 80px; height: 80px; }
             .pill      { font-size: 12px; padding: 7px 13px; }
             .section h2 { font-size: 16px; }
             .section p, .section ul li { font-size: 14px; }
@@ -370,13 +378,12 @@
 </head>
 <body>
 
-<!-- ─── NAV ───────────────────────────────────────────── -->
 <nav>
     <a class="nav-logo" href="#">
-        <img class="nav-logo-icon" src="cornBitTransparent.png" alt="Corn Stack"
-             onerror="this.style.display='none'">
         <span class="nav-logo-text">
-            CORN <span class="accent">₿</span> STACK
+            CORN 
+            <img class="inline-icon" src="cornBitTransparent.png" alt="₿" onerror="this.outerHTML='<span class=\'accent\'>₿</span>'"> 
+            STACK
         </span>
     </a>
     <div class="lang-switcher" role="group" aria-label="Language">
@@ -385,9 +392,8 @@
     </div>
 </nav>
 
-<!-- ─── HERO ──────────────────────────────────────────── -->
 <section class="hero">
-    <img class="hero-icon" src="cornBitTransparent.png" alt="Corn Stack Icon"
+    <img class="hero-icon" src="cornStackIconTransparent2x.png" alt="Corn Stack Icon"
          onerror="this.outerHTML='<div class=\'hero-icon-fallback\'>₿</div>'">
 
     <div class="hero-app-name">CORN STACK</div>
@@ -407,10 +413,8 @@
     </div>
 </section>
 
-<!-- ─── CONTENT ────────────────────────────────────────── -->
 <div class="content">
 
-    <!-- SUMMARY PILLS -->
     <div class="summary-pills" aria-label="Summary">
         <div class="pill"><div class="pill-dot"></div><span data-en="No account required" data-ja="アカウント不要"></span></div>
         <div class="pill"><div class="pill-dot"></div><span data-en="No personal data collected" data-ja="個人データ収集なし"></span></div>
@@ -418,7 +422,6 @@
         <div class="pill"><div class="pill-dot orange"></div><span data-en="Price data fetched externally" data-ja="価格データは外部から取得"></span></div>
     </div>
 
-    <!-- 1. INTRODUCTION -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon">📖</div>
@@ -434,7 +437,6 @@
         </p>
     </div>
 
-    <!-- 2. DATA WE DO NOT COLLECT -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon">🔒</div>
@@ -457,7 +459,6 @@
         </div>
     </div>
 
-    <!-- 3. DATA STORED ON DEVICE -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon">📱</div>
@@ -475,7 +476,6 @@
         </ul>
     </div>
 
-    <!-- 4. EXTERNAL PRICE DATA -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon">📡</div>
@@ -496,7 +496,6 @@
         </p>
     </div>
 
-    <!-- 5. PRIVACY MODE -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon">👁️</div>
@@ -512,7 +511,6 @@
         </p>
     </div>
 
-    <!-- 6. DATA SECURITY -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon">🛡️</div>
@@ -529,7 +527,6 @@
         </ul>
     </div>
 
-    <!-- 7. CHILDREN'S PRIVACY -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon">👶</div>
@@ -541,7 +538,6 @@
         </p>
     </div>
 
-    <!-- 8. CHANGES TO THIS POLICY -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon">📝</div>
@@ -557,30 +553,29 @@
         </p>
     </div>
 
-    <!-- 9. CONTACT -->
     <div class="section">
         <div class="section-header">
             <div class="section-icon">✉️</div>
             <h2><span data-en="Contact Us" data-ja="お問い合わせ"></span></h2>
         </div>
         <p>
-            <span data-en="If you have any questions or concerns about this Privacy Policy, please reach out:"
-                  data-ja="このプライバシーポリシーについてご質問やご不明点がある場合は、以下までご連絡ください："></span>
+            <span data-en="If you have any questions or concerns about this Privacy Policy, please reach out on X (Twitter):"
+                  data-ja="このプライバシーポリシーについてご質問やご不明点がある場合は、X（旧Twitter）でご連絡ください："></span>
         </p>
         <p>
-            <a class="contact-link" href="mailto:hello@cornstack.app">hello@cornstack.app</a>
+            <a class="contact-link" href="https://x.com/ninjashinobi21" target="_blank" rel="noopener noreferrer">@ninjashinobi21</a>
         </p>
     </div>
 
-</div><!-- /content -->
-
-<!-- ─── FOOTER ─────────────────────────────────────────── -->
-<footer>
-    <div class="footer-logo">CORN <span class="accent">₿</span> STACK</div>
+</div><footer>
+    <div class="footer-logo">
+        CORN 
+        <img class="inline-icon" src="cornBitTransparent.png" alt="₿" onerror="this.outerHTML='<span class=\'accent\'>₿</span>'"> 
+        STACK
+    </div>
     <p>© 2026 Corn Stack · <span data-en="All rights reserved." data-ja="全著作権所有。"></span></p>
 </footer>
 
-<!-- ─── LANGUAGE SCRIPT ───────────────────────────────── -->
 <script>
     function setLang(lang) {
         // Toggle button states
