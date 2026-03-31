@@ -68,7 +68,7 @@
             object-fit: contain;
             vertical-align: middle;
             margin: 0 4px;
-            margin-top: -3px; /* visual tweak to align perfectly with text */
+            margin-top: -3px;
         }
 
         .nav-logo-text {
@@ -156,7 +156,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(36px, 7vw, 48px); /* Increased minimum from 30px to 36px */
+            font-size: clamp(36px, 7vw, 48px);
             font-weight: 700;
             color: var(--text-primary);
             line-height: 1.15;
@@ -307,7 +307,6 @@
         .li-icon.no  { color: var(--negative); }
         .li-icon.yes { color: var(--positive); }
 
-        /* Highlight box */
         .highlight {
             background: var(--orange-dim);
             border: 1px solid var(--orange-border);
@@ -320,7 +319,6 @@
             line-height: 1.6;
         }
 
-        /* Contact link */
         .contact-link {
             color: var(--orange);
             text-decoration: none;
@@ -372,8 +370,8 @@
         }
 
         @media (max-width: 400px) {
-            .nav-logo-text { font-size: 11px; } /* Shrinks text instead of hiding it */
-            .inline-icon { width: 14px; height: 14px; } /* Shrinks the inline icon slightly to match */
+            .nav-logo-text { font-size: 11px; }
+            .inline-icon { width: 14px; height: 14px; }
             .summary-pills { gap: 8px; }
         }
     </style>
@@ -383,8 +381,8 @@
 <nav>
     <a class="nav-logo" href="#">
         <span class="nav-logo-text">
-            CORN 
-            <img class="inline-icon" src="cornBitTransparent.png" alt="₿" onerror="this.outerHTML='<span class=\'accent\'>₿</span>'"> 
+            CORN
+            <img class="inline-icon" src="cornBitTransparent.png" alt="₿" onerror="this.outerHTML='<span class=\'accent\'>₿</span>'">
             STACK
         </span>
     </a>
@@ -569,10 +567,12 @@
         </p>
     </div>
 
-</div><footer>
+</div>
+
+<footer>
     <div class="footer-logo">
-        CORN 
-        <img class="inline-icon" src="cornBitTransparent.png" alt="₿" onerror="this.outerHTML='<span class=\'accent\'>₿</span>'"> 
+        CORN
+        <img class="inline-icon" src="cornBitTransparent.png" alt="₿" onerror="this.outerHTML='<span class=\'accent\'>₿</span>'">
         STACK
     </div>
     <p>© 2026 Corn Stack · <span data-en="All rights reserved." data-ja="全著作権所有。"></span></p>
@@ -580,28 +580,23 @@
 
 <script>
     function setLang(lang) {
-        // Toggle button states
         document.getElementById('btn-en').classList.toggle('active', lang === 'en');
         document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
-
-        // Update html lang attribute for accessibility
         document.documentElement.lang = lang;
-
-        // Update all translatable elements
         document.querySelectorAll('[data-en]').forEach(function(el) {
             el.textContent = el.getAttribute('data-' + lang) || el.getAttribute('data-en');
         });
-
-        // Persist preference
         try { localStorage.setItem('cs-lang', lang); } catch(e) {}
     }
 
-    // On load: use stored preference, or detect browser language
+    // On load: URL param > stored preference > browser language
     (function() {
+        var param = new URLSearchParams(window.location.search).get('lang');
         var stored = '';
         try { stored = localStorage.getItem('cs-lang') || ''; } catch(e) {}
         var browser = navigator.language || navigator.userLanguage || '';
-        var lang = stored || (browser.toLowerCase().startsWith('ja') ? 'ja' : 'en');
+        var lang = (param === 'ja' || param === 'en') ? param
+                 : stored || (browser.toLowerCase().startsWith('ja') ? 'ja' : 'en');
         setLang(lang);
     })();
 </script>
