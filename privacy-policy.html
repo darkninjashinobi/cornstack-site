@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Corn Stack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:            #000000;
+            --card:          #1C1C1E;
+            --card-alt:      #2C2C2E;
+            --orange:        #F7931A;
+            --orange-dim:    rgba(247, 147, 26, 0.15);
+            --orange-border: rgba(247, 147, 26, 0.25);
+            --positive:      #30D158;
+            --negative:      #FF453A;
+            --text-primary:  #FFFFFF;
+            --text-secondary: rgba(235, 235, 245, 0.60);
+            --text-tertiary:  rgba(235, 235, 245, 0.30);
+            --separator:      rgba(235, 235, 245, 0.08);
+            --radius-card:   20px;
+            --radius-sm:     10px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── NAV ─────────────────────────────────────── */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.80);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--separator);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            width: 26px;
+            height: 26px;
+            object-fit: contain;
+        }
+
+        .nav-logo-text {
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 0.06em;
+        }
+
+        .nav-logo-text .accent { color: var(--orange); }
+
+        .lang-switcher {
+            display: flex;
+            gap: 3px;
+            background: var(--card);
+            border: 1px solid var(--separator);
+            border-radius: 10px;
+            padding: 3px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--text-tertiary);
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 13px;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: background 0.18s ease, color 0.18s ease;
+            letter-spacing: 0.04em;
+        }
+
+        .lang-btn:hover { color: var(--text-secondary); }
+
+        .lang-btn.active {
+            background: var(--orange);
+            color: #000000;
+        }
+
+        /* ─── HERO ────────────────────────────────────── */
+
+        .hero {
+            text-align: center;
+            padding: 72px 24px 52px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-icon {
+            width: 88px;
+            height: 88px;
+            object-fit: contain;
+            margin: 0 auto 24px;
+            display: block;
+            filter: drop-shadow(0 0 24px rgba(247, 147, 26, 0.35));
+        }
+
+        .hero-icon-fallback {
+            width: 88px;
+            height: 88px;
+            background: var(--orange-dim);
+            border: 1px solid var(--orange-border);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 40px;
+        }
+
+        .hero-app-name {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--orange);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 6vw, 48px);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.15;
+            margin-bottom: 18px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin: 0 auto 28px;
+            line-height: 1.65;
+        }
+
+        .hero-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card);
+            border: 1px solid var(--separator);
+            border-radius: 8px;
+            padding: 7px 18px;
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: var(--text-tertiary);
+            letter-spacing: 0.03em;
+        }
+
+        /* ─── CONTENT WRAPPER ─────────────────────────── */
+
+        .content {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 0 24px 96px;
+        }
+
+        /* ─── SUMMARY PILLS ───────────────────────────── */
+
+        .summary-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 52px;
+            justify-content: center;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card);
+            border: 1px solid var(--separator);
+            border-radius: 100px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--positive);
+            flex-shrink: 0;
+        }
+        .pill-dot.orange { background: var(--orange); }
+
+        /* ─── POLICY SECTIONS ─────────────────────────── */
+
+        .section {
+            background: var(--card);
+            border: 1px solid var(--separator);
+            border-radius: var(--radius-card);
+            padding: 32px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s ease;
+        }
+
+        .section:hover { border-color: rgba(235, 235, 245, 0.13); }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .section-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--orange-dim);
+            border: 1px solid var(--orange-border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .section h2 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.75;
+            margin-bottom: 14px;
+        }
+
+        .section p:last-child { margin-bottom: 0; }
+
+        .section ul {
+            list-style: none;
+            margin-top: 4px;
+        }
+
+        .section ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.65;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--separator);
+        }
+
+        .section ul li:first-child { padding-top: 2px; }
+        .section ul li:last-child  { border-bottom: none; padding-bottom: 0; }
+
+        .li-icon {
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            color: var(--orange);
+            margin-top: 2px;
+            flex-shrink: 0;
+            width: 16px;
+        }
+
+        .li-icon.no  { color: var(--negative); }
+        .li-icon.yes { color: var(--positive); }
+
+        /* Highlight box */
+        .highlight {
+            background: var(--orange-dim);
+            border: 1px solid var(--orange-border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--orange);
+            line-height: 1.6;
+        }
+
+        /* Contact link */
+        .contact-link {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--orange-border);
+            transition: border-color 0.15s ease;
+        }
+        .contact-link:hover { border-color: var(--orange); }
+
+        /* ─── FOOTER ──────────────────────────────────── */
+
+        footer {
+            text-align: center;
+            padding: 32px 24px 40px;
+            border-top: 1px solid var(--separator);
+        }
+
+        .footer-logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-tertiary);
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .footer-logo .accent { color: var(--orange); }
+
+        footer p {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* ─── RESPONSIVE ──────────────────────────────── */
+
+        @media (max-width: 640px) {
+            nav        { padding: 0 18px; }
+            .hero      { padding: 56px 18px 40px; }
+            .content   { padding: 0 16px 72px; }
+            .section   { padding: 24px 20px; }
+            .hero-icon, .hero-icon-fallback { width: 72px; height: 72px; }
+            .pill      { font-size: 12px; padding: 7px 13px; }
+            .section h2 { font-size: 16px; }
+            .section p, .section ul li { font-size: 14px; }
+        }
+
+        @media (max-width: 400px) {
+            .nav-logo-text { display: none; }
+            .summary-pills { gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ─── NAV ───────────────────────────────────────────── -->
+<nav>
+    <a class="nav-logo" href="#">
+        <img class="nav-logo-icon" src="cornBitTransparent.png" alt="Corn Stack"
+             onerror="this.style.display='none'">
+        <span class="nav-logo-text">
+            CORN <span class="accent">₿</span> STACK
+        </span>
+    </a>
+    <div class="lang-switcher" role="group" aria-label="Language">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-label="English">EN</button>
+        <button class="lang-btn"        id="btn-ja" onclick="setLang('ja')" aria-label="日本語">日本語</button>
+    </div>
+</nav>
+
+<!-- ─── HERO ──────────────────────────────────────────── -->
+<section class="hero">
+    <img class="hero-icon" src="cornBitTransparent.png" alt="Corn Stack Icon"
+         onerror="this.outerHTML='<div class=\'hero-icon-fallback\'>₿</div>'">
+
+    <div class="hero-app-name">CORN STACK</div>
+
+    <h1>
+        <span data-en="Privacy Policy" data-ja="プライバシーポリシー"></span>
+    </h1>
+
+    <p class="hero-subtitle">
+        <span data-en="Corn Stack is built with privacy at its core. Your financial data never leaves your device."
+              data-ja="Corn Stackはプライバシーを核心に構築されています。あなたの財務データはデバイスの外に出ることはありません。"></span>
+    </p>
+
+    <div class="hero-date">
+        📅&nbsp;
+        <span data-en="Effective April 1, 2026" data-ja="施行日：2026年4月1日"></span>
+    </div>
+</section>
+
+<!-- ─── CONTENT ────────────────────────────────────────── -->
+<div class="content">
+
+    <!-- SUMMARY PILLS -->
+    <div class="summary-pills" aria-label="Summary">
+        <div class="pill"><div class="pill-dot"></div><span data-en="No account required" data-ja="アカウント不要"></span></div>
+        <div class="pill"><div class="pill-dot"></div><span data-en="No personal data collected" data-ja="個人データ収集なし"></span></div>
+        <div class="pill"><div class="pill-dot"></div><span data-en="No tracking or analytics" data-ja="追跡・分析なし"></span></div>
+        <div class="pill"><div class="pill-dot orange"></div><span data-en="Price data fetched externally" data-ja="価格データは外部から取得"></span></div>
+    </div>
+
+    <!-- 1. INTRODUCTION -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">📖</div>
+            <h2><span data-en="Introduction" data-ja="はじめに"></span></h2>
+        </div>
+        <p>
+            <span data-en='Corn Stack ("we," "our," or "the app") is a Bitcoin portfolio tracker for iPhone and iPad. This Privacy Policy explains what information the app accesses, how it is used, and — importantly — what we do not collect.'
+                  data-ja='Corn Stack（「私たち」または「本アプリ」）はiPhoneおよびiPad向けのビットコインポートフォリオトラッカーです。このプライバシーポリシーは、アプリがアクセスする情報、その使用方法、そして収集しない情報について説明します。'></span>
+        </p>
+        <p>
+            <span data-en="By using Corn Stack, you agree to the terms of this Privacy Policy. If you do not agree, please discontinue use of the app."
+                  data-ja="Corn Stackを使用することにより、このプライバシーポリシーの条件に同意したものとみなされます。同意されない場合は、アプリの使用を中止してください。"></span>
+        </p>
+    </div>
+
+    <!-- 2. DATA WE DO NOT COLLECT -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">🔒</div>
+            <h2><span data-en="Data We Do Not Collect" data-ja="収集しないデータ"></span></h2>
+        </div>
+        <p>
+            <span data-en="Corn Stack does not collect, transmit, or store any of the following on external servers:"
+                  data-ja="Corn Stackは以下のいかなる情報も外部サーバーに収集、送信、または保存しません："></span>
+        </p>
+        <ul>
+            <li><span class="li-icon no">✕</span><span data-en="Your name, email address, or any personal identifier" data-ja="氏名、メールアドレス、またはその他の個人識別情報"></span></li>
+            <li><span class="li-icon no">✕</span><span data-en="Your Bitcoin holdings, transaction history, or portfolio value" data-ja="ビットコイン保有量、取引履歴、またはポートフォリオ価値"></span></li>
+            <li><span class="li-icon no">✕</span><span data-en="Device identifiers, IP addresses, or location data" data-ja="デバイス識別子、IPアドレス、または位置情報"></span></li>
+            <li><span class="li-icon no">✕</span><span data-en="Usage data, behavioural analytics, or crash logs sent off-device" data-ja="使用データ、行動分析、またはデバイス外に送信されるクラッシュログ"></span></li>
+            <li><span class="li-icon no">✕</span><span data-en="Any payment, financial account, or wallet information" data-ja="支払い情報、金融口座情報、またはウォレット情報"></span></li>
+        </ul>
+        <div class="highlight">
+            <span data-en="💡 Corn Stack requires no account, no sign-in, and no registration of any kind."
+                  data-ja="💡 Corn Stackはアカウント、サインイン、または登録を一切必要としません。"></span>
+        </div>
+    </div>
+
+    <!-- 3. DATA STORED ON DEVICE -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">📱</div>
+            <h2><span data-en="Data Stored on Your Device" data-ja="デバイスに保存されるデータ"></span></h2>
+        </div>
+        <p>
+            <span data-en="All portfolio data you enter — including transaction amounts, dates, and memos — is stored exclusively on your device using Apple's SwiftData framework. This data:"
+                  data-ja="取引金額、日付、メモなど、入力したすべてのポートフォリオデータは、AppleのSwiftDataフレームワークを使用してデバイス上にのみ保存されます。このデータは："></span>
+        </p>
+        <ul>
+            <li><span class="li-icon yes">✓</span><span data-en="Never leaves your device and is never transmitted to any server" data-ja="デバイスから出ることはなく、いかなるサーバーにも送信されません"></span></li>
+            <li><span class="li-icon yes">✓</span><span data-en="Is protected by iOS device encryption, requiring your Face ID or passcode to access" data-ja="iOSデバイスの暗号化によって保護されており、アクセスにはFace IDまたはパスコードが必要です"></span></li>
+            <li><span class="li-icon yes">✓</span><span data-en="Is included in your encrypted iCloud Backup if that feature is enabled on your device" data-ja="デバイスでiCloudバックアップが有効な場合、暗号化されたiCloudバックアップに含まれます"></span></li>
+            <li><span class="li-icon yes">✓</span><span data-en="Is permanently deleted when you uninstall the app or use the Delete All Data function in Settings" data-ja="アプリをアンインストールするか、設定の「すべてのデータを削除」を使用すると完全に削除されます"></span></li>
+        </ul>
+    </div>
+
+    <!-- 4. EXTERNAL PRICE DATA -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">📡</div>
+            <h2><span data-en="External Price Data" data-ja="外部価格データ"></span></h2>
+        </div>
+        <p>
+            <span data-en="To display current Bitcoin prices and historical chart data, Corn Stack connects to external price data services over an encrypted HTTPS connection. These network requests:"
+                  data-ja="現在のビットコイン価格と過去のチャートデータを表示するために、Corn Stackは暗号化されたHTTPS接続を通じて外部の価格データサービスに接続します。これらのネットワークリクエストは："></span>
+        </p>
+        <ul>
+            <li><span class="li-icon">→</span><span data-en="Contain no personal information — only a standard anonymous request for public Bitcoin market data" data-ja="個人情報を含みません — 公開ビットコイン市場データへの標準的な匿名リクエストのみです"></span></li>
+            <li><span class="li-icon">→</span><span data-en="Are used solely to display current and historical prices within the app" data-ja="アプリ内での現在および過去の価格表示のみを目的として使用されます"></span></li>
+            <li><span class="li-icon">→</span><span data-en="Cannot be linked to you or used to identify you as an individual" data-ja="あなたと紐付けたり、個人を特定するために使用することはできません"></span></li>
+        </ul>
+        <p style="margin-top: 16px;">
+            <span data-en="Corn Stack does not control third-party data services. Their own privacy practices are governed by their respective policies."
+                  data-ja="Corn Stackはサードパーティのデータサービスを管理していません。それらのプライバシー慣行は各自のポリシーに従います。"></span>
+        </p>
+    </div>
+
+    <!-- 5. PRIVACY MODE -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">👁️</div>
+            <h2><span data-en="Privacy Mode" data-ja="プライバシーモード"></span></h2>
+        </div>
+        <p>
+            <span data-en="Corn Stack includes a built-in Privacy Mode that blurs all balance and transaction amounts on screen. This is a local, on-device display feature only."
+                  data-ja="Corn Stackには、画面上のすべての残高と取引金額をぼかすプライバシーモード機能が組み込まれています。これはローカルのデバイス上の表示機能のみです。"></span>
+        </p>
+        <p>
+            <span data-en="Privacy Mode does not change how data is stored — it is designed to prevent shoulder-surfing in public spaces and does not transmit any information."
+                  data-ja="プライバシーモードはデータの保存方法を変更しません。公共の場での覗き見を防ぐために設計されており、いかなる情報も送信しません。"></span>
+        </p>
+    </div>
+
+    <!-- 6. DATA SECURITY -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">🛡️</div>
+            <h2><span data-en="Data Security" data-ja="データセキュリティ"></span></h2>
+        </div>
+        <p>
+            <span data-en="Because Corn Stack stores all data locally on your device, the security of your portfolio data is directly tied to the security of your device. We recommend:"
+                  data-ja="Corn Stackはすべてのデータをデバイス上にローカルで保存するため、ポートフォリオデータのセキュリティはデバイスのセキュリティに直接依存します。以下を推奨します："></span>
+        </p>
+        <ul>
+            <li><span class="li-icon">→</span><span data-en="Enabling Face ID or Touch ID with a strong passcode on your device" data-ja="デバイスでFace IDまたはTouch IDと強力なパスコードを有効にする"></span></li>
+            <li><span class="li-icon">→</span><span data-en="Keeping iOS updated to the latest available version" data-ja="iOSを利用可能な最新バージョンに保つ"></span></li>
+            <li><span class="li-icon">→</span><span data-en="Enabling encrypted iCloud Backup to protect against device loss or damage" data-ja="デバイスの紛失や損傷に備えて暗号化されたiCloudバックアップを有効にする"></span></li>
+        </ul>
+    </div>
+
+    <!-- 7. CHILDREN'S PRIVACY -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">👶</div>
+            <h2><span data-en="Children's Privacy" data-ja="お子様のプライバシー"></span></h2>
+        </div>
+        <p>
+            <span data-en="Corn Stack does not knowingly collect any personal information from anyone, including children under the age of 13. The app does not require any personal data to function."
+                  data-ja="Corn Stackは、13歳未満のお子様を含む誰からも個人情報を意図的に収集しません。本アプリは機能するために個人データを必要としません。"></span>
+        </p>
+    </div>
+
+    <!-- 8. CHANGES TO THIS POLICY -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">📝</div>
+            <h2><span data-en="Changes to This Policy" data-ja="ポリシーの変更"></span></h2>
+        </div>
+        <p>
+            <span data-en="We may update this Privacy Policy from time to time. When we do, we will revise the effective date at the top of this page. We encourage you to review this page periodically."
+                  data-ja="このプライバシーポリシーは随時更新される場合があります。更新時には、このページ上部の施行日を改訂します。定期的にこのページをご確認されることをお勧めします。"></span>
+        </p>
+        <p>
+            <span data-en="Continued use of Corn Stack after any changes to this policy constitutes your acceptance of the revised terms."
+                  data-ja="本ポリシーの変更後も引き続きCorn Stackを使用することは、改訂された条件への同意とみなされます。"></span>
+        </p>
+    </div>
+
+    <!-- 9. CONTACT -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">✉️</div>
+            <h2><span data-en="Contact Us" data-ja="お問い合わせ"></span></h2>
+        </div>
+        <p>
+            <span data-en="If you have any questions or concerns about this Privacy Policy, please reach out:"
+                  data-ja="このプライバシーポリシーについてご質問やご不明点がある場合は、以下までご連絡ください："></span>
+        </p>
+        <p>
+            <a class="contact-link" href="mailto:hello@cornstack.app">hello@cornstack.app</a>
+        </p>
+    </div>
+
+</div><!-- /content -->
+
+<!-- ─── FOOTER ─────────────────────────────────────────── -->
+<footer>
+    <div class="footer-logo">CORN <span class="accent">₿</span> STACK</div>
+    <p>© 2026 Corn Stack · <span data-en="All rights reserved." data-ja="全著作権所有。"></span></p>
+</footer>
+
+<!-- ─── LANGUAGE SCRIPT ───────────────────────────────── -->
+<script>
+    function setLang(lang) {
+        // Toggle button states
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+
+        // Update html lang attribute for accessibility
+        document.documentElement.lang = lang;
+
+        // Update all translatable elements
+        document.querySelectorAll('[data-en]').forEach(function(el) {
+            el.textContent = el.getAttribute('data-' + lang) || el.getAttribute('data-en');
+        });
+
+        // Persist preference
+        try { localStorage.setItem('cs-lang', lang); } catch(e) {}
+    }
+
+    // On load: use stored preference, or detect browser language
+    (function() {
+        var stored = '';
+        try { stored = localStorage.getItem('cs-lang') || ''; } catch(e) {}
+        var browser = navigator.language || navigator.userLanguage || '';
+        var lang = stored || (browser.toLowerCase().startsWith('ja') ? 'ja' : 'en');
+        setLang(lang);
+    })();
+</script>
+
+</body>
+</html>
